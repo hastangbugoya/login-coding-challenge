@@ -1,0 +1,13 @@
+-	Email and password should be valid to make login service call
+	-	Email - should not be empty (“Email is empty” as an error message)
+	-	Password - should not be empty (“Password is empty” as an error message)
+-	Service call has its own validation
+	-	Email - should not contain string “bad”
+	-	Password - should be no less than 8 characters
+-	Any invalid field must show an error with corresponding message
+-	ProgressBar should be visible when waiting for service response and hidden when finished
+-	On successful login, user should go to WelcomeActivity
+-	If remember me was checked, the flag and user email should be stored locally
+-	When the user comes to MainActivity, the app should check this flag
+	-	Remember me true - go directly to WelcomeActivity
+	-	Remember me false - stay on MainActivity
