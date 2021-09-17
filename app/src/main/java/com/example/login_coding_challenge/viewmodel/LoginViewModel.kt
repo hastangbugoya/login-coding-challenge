@@ -16,31 +16,27 @@ import kotlinx.coroutines.launch
 class LoginViewModel(
     private val loginUserUseCase: LoginUserUserUseCase
 ): ViewModel() {
-    var email = ""
-    var password = ""
-    var isRememberMeChecked = false
 
     private val _emailError = MutableLiveData<String?>()
     val emailError: LiveData<String?> = _emailError
+
     private val _passwordError = MutableLiveData<String?>()
     val passwordError: LiveData<String?> = _passwordError
+
     private val _loaderVisibility = MutableLiveData(View.GONE)
     val loaderVisibility: LiveData<Int> = _loaderVisibility
 
-    fun onEmailTextChanged(text: String) {
+    private val _successfulLoginEvent = MutableLiveData<Event<Boolean>>()
+    val successfulLoginEvent: LiveData<Event<Boolean>> = _successfulLoginEvent
+
+    fun isUserRemembered(): Boolean {
         TODO()
     }
 
-    fun onPasswordTextChanged(text: String) {
-        TODO()
-    }
-
-    fun onRememberMeCheckedChange(isChecked: Boolean) {
-        TODO()
-    }
-
-    fun onSubmit() {
-        TODO()
+    fun onSubmit(email: String, password: String, isRememberMeChecked: Boolean) {
+        viewModelScope.launch {
+            TODO()
+        }
     }
 
 }

@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v?.id) {
             submitButton.id -> {
-                loginViewModel.onSubmit()
+                TODO()
             }
         }
     }
@@ -62,17 +62,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory(loginUseCase)).get(LoginViewModel::class.java)
 
-        emailTextInputEditText.doOnTextChanged { text, _, _, _ ->
+        loginViewModel.loaderVisibility.observe(this, {
+            loader.visibility = it
+        })
 
-        }
+        loginViewModel.emailError.observe(this, {
+            emailTextInputLayout.error = it
+        })
 
-        passwordTextInputEditText.doOnTextChanged { text, _, _, _ ->
+        loginViewModel.passwordError.observe(this, {
+            TODO()
+        })
 
-        }
-
-        rememberMeCheckbox.setOnCheckedChangeListener { _, isChecked ->
-
-        }
+        loginViewModel.successfulLoginEvent.observe(this, {
+            val shouldGoToWelcomeActivity = it.getContentIfNotHandled()
+            if(shouldGoToWelcomeActivity != null && shouldGoToWelcomeActivity) {
+                TODO()
+            }
+        })
 
         submitButton.setOnClickListener(this)
     }

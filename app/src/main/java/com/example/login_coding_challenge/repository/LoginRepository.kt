@@ -15,10 +15,10 @@ class LoginRepository(
     }
 
     fun rememberUser(email: String) {
-        TODO()
+        loginLocalData.rememberUser(email)
     }
 
-    fun logInUser(loginUserRequest: LoginUserRequest): LoginUserResponse {
+    suspend fun logInUser(loginUserRequest: LoginUserRequest): LoginUserResponse {
         TODO()
     }
 }

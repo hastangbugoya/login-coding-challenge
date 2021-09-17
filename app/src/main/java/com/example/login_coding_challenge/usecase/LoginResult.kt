@@ -4,5 +4,5 @@ import com.example.login_coding_challenge.model.LoginError
 
 sealed class LoginResult {
     object SUCCESS: LoginResult()
-    class FAILURE(errors: List<LoginError>): LoginResult()
+    class FAILURE(val errors: List<LoginError>): LoginResult()
 }
