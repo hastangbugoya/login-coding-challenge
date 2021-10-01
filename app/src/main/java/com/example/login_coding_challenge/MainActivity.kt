@@ -1,6 +1,5 @@
 package com.example.login_coding_challenge
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,8 +8,9 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatCheckBox
-import com.example.login_coding_challenge.model.LoginLocalData
-import com.example.login_coding_challenge.model.LoginRemoteData
+import com.example.login_coding_challenge.data.LoginLocalData
+import com.example.login_coding_challenge.data.LoginRemoteData
+import com.example.login_coding_challenge.data.LoginService
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -33,8 +33,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, CompoundButton.O
     private lateinit var rememberMeCheckbox: AppCompatCheckBox
     private lateinit var submitButton: AppCompatButton
 
-    private val loginRemoteData = LoginRemoteData()
-    private val loginLocalData = LoginLocalData(getSharedPreferences("com.example.login", Context.MODE_PRIVATE))
+    private val loginService = LoginService()
+    private val loginRemoteData = LoginRemoteData(loginService)
+    private val loginLocalData = LoginLocalData(getSharedPreferences("com.example.login", MODE_PRIVATE))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

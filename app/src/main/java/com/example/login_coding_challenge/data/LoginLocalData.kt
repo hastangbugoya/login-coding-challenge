@@ -1,4 +1,4 @@
-package com.example.login_coding_challenge.model
+package com.example.login_coding_challenge.data
 
 import android.content.SharedPreferences
 
