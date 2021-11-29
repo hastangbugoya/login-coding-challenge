@@ -1,10 +1,7 @@
 -	Email and password should be valid to make login service call
-	-	Email - should not be empty (“Email is empty” as an error message)
-	-	Password - should not be empty (“Password is empty” as an error message)
--	Service call has its own validation
-	-	Email - should not contain string “bad”
-	-	Password - should be no less than 8 characters
--	Any invalid field must show an error with corresponding message
+	-	Email - should not be empty as the only validation (“Email is empty” as an error message)
+	-	Password - should not be empty as the only validation (“Password is empty” as an error message)
+-   Validation should occur when the user clicks on the submit button
 -	ProgressBar should be visible when waiting for service response and hidden when finished
 -	On successful login, user should go to WelcomeActivity
     -	If remember me was checked, the flag and user email should be stored locally
